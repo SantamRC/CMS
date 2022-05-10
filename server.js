@@ -4,7 +4,7 @@ const path = require("path");
 const crypto = require("crypto");
 const mongoose = require("mongoose");
 const multer = require("multer");
-const GridFsStorage = require("multer-gridfs-storage");
+const { GridFsStorage } = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
 const methodOverride = require("method-override");
 
@@ -16,7 +16,7 @@ app.use(methodOverride("_method"));
 app.set("view engine", "ejs");
 
 // Mongo URI
-const mongoURI = "mongodb://brad:brad@ds257838.mlab.com:57838/mongouploads";
+const mongoURI = "mongodb://localhost:27017";
 
 // Create mongo connection
 const conn = mongoose.createConnection(mongoURI);
@@ -151,3 +151,4 @@ app.delete("/files/:id", (req, res) => {
 const port = 5000;
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
+
